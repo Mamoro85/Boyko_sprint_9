@@ -23,13 +23,16 @@ func generateRandomElements(size int) []int {
 
 // Поиск максимума в одном потоке
 func maximum(data []int) int {
-	maxVal := data[0]
-	for _, val := range data {
-		if val > maxVal {
-			maxVal = val
-		}
-	}
-	return maxVal
+    if len(data) == 0 {
+        return 0
+    }
+    max := data[0]
+    for _, v := range data[1:] {
+        if v > max {
+            max = v
+        }
+    }
+    return max
 }
 
 // Поиск максимума в нескольких потоках
